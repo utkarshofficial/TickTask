@@ -8,6 +8,18 @@ class User {
   }
 }
 
+// check if already logged in then redirect to home page
+function alreadyLoggedIn(){
+  let user = JSON.parse(localStorage.getItem("user"));
+  if(user!= null){
+    let url = location.href;
+    url = url.slice(0,url.indexOf('/login'));
+    // redirecting to todo.html;
+    url = url + "/todo/todo.html";
+    location.href = url;
+  }
+}
+
 // gettings users data if stored
 let users = JSON.parse(localStorage.getItem("users"));
 
@@ -41,6 +53,7 @@ function signup(fullname, username, email, password) {
 
 // signup
 signupBtn.onclick = function () {
+  // checking that form don't have empty input
   if(fullname.value.length==0 || username.value.length==0 || email.value.length==0 || password.value.length==0 || confirmPassword.value.length==0)
     return;
   for (let i = 0; i < users.length; i++) {
@@ -51,7 +64,6 @@ signupBtn.onclick = function () {
       return;
     }
   } 
-  console.log(password.value,confirmPassword.value);
   // if password not matched then
   if (password.value !== confirmPassword.value) {
     error.style.display = "block";
@@ -63,4 +75,9 @@ signupBtn.onclick = function () {
   // if not found then add user
   signup(fullname.value, username.value, email.value, password.value);
   signupSuccess();
+};
+
+// if already logged in -> redirect
+window.onload = ()=>{
+  alreadyLoggedIn();
 };

@@ -5,22 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="loader.css">
   </head>
   <body>
     <div class="form-box">
-      <form class="form">
+      <form class="form" onsubmit="return false">
         <span class="title">Log in</span>
         <span class="subtitle">Login to your account for access todos.</span>
         <div class="form-container">
-            <input type="text" class="input" placeholder="Username" id="username"/>
-            <input type="password" class="input" placeholder="Password" id="password"/>
-          </div>
+          <input required type="text" class="input" placeholder="Username or email" id="username"/>
+          <input required type="password" class="input" placeholder="Password" id="password"/>
+        </div>
+        <div class="loader" id="loader">
+          <div class="justify-content-center jimu-primary-loading"></div>
+        </div>
         <span id="error">Error</span>
-        <input type="submit" id="signupBtn" class="button" value="Sign up"></input>
+        <input type="submit" id="loginBtn" class="button" value="Log in"></input>
       </form>
       <div class="form-section">
         <p>Create an account? <a href="signup.html">Sign up</a></p>
       </div>
     </div>
+    <script src="login.js"></script>
   </body>
 </html>
