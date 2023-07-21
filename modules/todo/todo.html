@@ -4,14 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToDo</title>
+    <link rel="stylesheet" href="../bootstrap/bootstrap.css">
     <link rel="stylesheet" href="todo.css" />
+    <link rel="stylesheet" href="navbar.css">
   </head>
   <body>
+    <div class="navbarBootstrap">
+      <nav class="navbar bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="../img/todo-logo-cutout.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+            ToDo
+          </a>
+          <a href="">
+            <div class="profile-nav">
+              <p id="profileName" class="text-primary">Utkarsh</p>
+              <div class="profile-icon">
+                <p id="profileLetter" class="text-white">U</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </nav>
+    </div>
     <div class="container">
-      <div class="profile z-idx2 bg-dark">
+      <!-- <div class="profile z-idx2">
         <img class="avatar" src="img/prof.jpg" alt="" />
         <p>Utkarsh Sharma</p>
-      </div>
+      </div> -->
       <div class="wish">
         <h1 id="wish">
           <span>Good</span>
@@ -19,7 +39,7 @@
         </h1>
       </div>
       <div class="stickContainer">
-        <div class="dateAndRatio z-idx2 bg-dark">
+        <div class="dateAndRatio z-idx2">
           <div class="date">
             <p class="headingText">Today's <span id="day">Monday</span></p>
             <p class="smallText" id="date">Dec 12, 2022</p>
@@ -31,7 +51,7 @@
             <p class="smallText">Completed Tasks</p>
           </div>
         </div>
-        <div class="tabs z-idx2 bg-dark">
+        <div class="tabs z-idx2">
           <div class="tabBtn">
             <span id="activeCount">12</span>
             <button id="activeTabBtn">Active</button>
@@ -62,8 +82,8 @@
               <div class="taskDescription">
                 <p class="desTitle">Description</p>
                 <p class="description">
-                  Start from chapter 1 to 8, make notes of all the lectures
-                  and revise previous topics
+                  Start from chapter 1 to 8, make notes of all the lectures and
+                  revise previous topics
                 </p>
               </div>
             </div>
@@ -86,8 +106,8 @@
               <div class="taskDescription">
                 <p class="desTitle">Description</p>
                 <p class="description">
-                  Start from chapter 1 to 8, make notes of all the lectures
-                  and revise previous topics
+                  Start from chapter 1 to 8, make notes of all the lectures and
+                  revise previous topics
                 </p>
               </div>
             </div>
@@ -110,8 +130,8 @@
               <div class="taskDescription">
                 <p class="desTitle">Description</p>
                 <p class="description">
-                  Start from chapter 1 to 8, make notes of all the lectures
-                  and revise previous topics
+                  Start from chapter 1 to 8, make notes of all the lectures and
+                  revise previous topics
                 </p>
               </div>
             </div>
@@ -134,8 +154,8 @@
               <div class="taskDescription">
                 <p class="desTitle">Description</p>
                 <p class="description">
-                  Start from chapter 1 to 8, make notes of all the lectures
-                  and revise previous topics
+                  Start from chapter 1 to 8, make notes of all the lectures and
+                  revise previous topics
                 </p>
               </div>
             </div>
@@ -158,8 +178,8 @@
               <div class="taskDescription">
                 <p class="desTitle">Description</p>
                 <p class="description">
-                  Start from chapter 1 to 8, make notes of all the lectures
-                  and revise previous topics
+                  Start from chapter 1 to 8, make notes of all the lectures and
+                  revise previous topics
                 </p>
               </div>
             </div>
@@ -170,5 +190,6 @@
         </button>
       </div>
     </div>
+    <script src="../bootstrap/bootstrap.js"></script>
   </body>
 </html>
