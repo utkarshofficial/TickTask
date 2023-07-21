@@ -10,9 +10,9 @@ body{
 .container{
     background-color: #111c2f;
     width: 100%;
-    min-width: 400px;
+    min-width: 300px;
     margin: auto;   
-    padding: 15px;
+    /* padding: 15px; */
     display: flex;
     flex-direction: column;
     position: relative;
@@ -22,6 +22,10 @@ body{
     height: 35px;
     margin-right: 10px;
     border-radius: 100%;
+    background-color: #111c2f;
+    color: white;
+    font-size: 1.4em;
+    text-align: center;
 }
 .profile p{
     font-weight: 400;
@@ -34,16 +38,18 @@ body{
     justify-content: start;
 }
 
-.wish{
+.wish{  
     animation-name: hide;
-    animation-duration: 2s;
-    visibility: block;
+    animation-duration: 2.05s;
 }
 @keyframes hide{
-    from{
-        /* opacity: 1; */
+    0%{
+        opacity: 0;
     }
-    to{
+    50%{
+        opacity: 1;
+    }
+    100%{
         opacity: 0;
     }
 }
@@ -52,6 +58,8 @@ body{
     font-size: 3em;
     margin: 0;
     margin-top: 10px;
+    margin-bottom: 10px;
+
 }
 .wish span{
     display: block;
@@ -62,13 +70,14 @@ p{
     margin: 0;
 }
 
-.stickContainer{
+/* .stickContainer{
     position: sticky;
     top: 0;
-}
+    margin-bottom: 2px;
+} */
 
 .dateAndRatio{
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
 }
@@ -96,22 +105,22 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.2em;
 }
 .tabBtn button{
     border: none;
-    font-size: 2.5em;
     font-family: calibri;
     font-weight: 300;
     color: white;
     background-color: transparent;
 }
 .tabBtn span{
-    font-size: 1.2rem;
     font-weight: 700;
     text-align: center;
-    border: 1px solid #ffffff;
+    background-color: #5e8bff;
+    /* border: 1px solid #ffffff; */
     border-radius: 50px;
-    padding: 3px 10px;
+    padding: 0px 10px;
 }
 
 .taskCard{
@@ -124,13 +133,17 @@ p{
     display: flex;
     justify-content: space-between;
 }
+.taskCard .taskTitle{
+    display: flex;
+    justify-content: space-between;
+}
 .taskCard .taskCardDone{
     display: flex;
     align-items: center;
 }
 .taskCard .taskCardDone button{
     /* background-color: transparent; */
-    background-color: #8dd8ea;
+    background-color: #5e8bff;
     border: none;
     width: 45px;
     height: 45px;
@@ -145,25 +158,35 @@ p{
 .tick{
     width: 32px;
     transform: scale(1.4);
+    filter: invert(1);
 }
 .taskList > ul{
+    margin: 0;
+    margin-top: 5px;
+    height: calc(100vh - 170px);
     padding: 0; 
+    overflow: auto;
 }
 li{
     list-style: none;
     margin-bottom: 10px;
 }
+.taskTitle{
+    width: 100%;
+}
 .taskTitle > p{
     font-weight: 600;
-    font-size: 1.8em;
+    font-size: 1.5em;
 }
 .taskDescription .desTitle{
     font-weight: 700;
 }
 .taskDescription .description{
     font-weight: 450;
+    line-height: 1;
 }
 hr{
+    margin: 2px 0;
     border: none;
     border-top: 1px solid #111c2f;
 }
@@ -174,13 +197,14 @@ hr{
     border-radius: 100%;
     background-color: #5e8bff;
     margin: auto;
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 3px;
 }
 .addTaskBtn img{
-    width: 20px
+    width: 20px;
+    filter:invert(1);
 }
 
 
