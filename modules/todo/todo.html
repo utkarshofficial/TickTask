@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../bootstrap/bootstrap.css">
     <link rel="stylesheet" href="todo.css" />
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="addTask.css">
   </head>
   <body>
     <div class="navbarBootstrap">
@@ -186,6 +187,16 @@
             </div>
           </li>
         </ul>
+        <div class="form-container">
+          <div class="form">
+            <div class="form-group">
+              <input placeholder="Title" type="text" id="title" required>
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Description" id="description" rows="5" cols="50" required></textarea>
+            </div>
+          </div>
+        </div>
         <button class="addTaskBtn" id="addTask">
           <img src="img/add.svg" alt="" />
         </button>
