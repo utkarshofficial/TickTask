@@ -5,13 +5,13 @@
     linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
     /* background-color: #111c2f; */
   border: 2px solid transparent;
-  padding: 32px 24px;
+  padding: 20px;
   font-size: 14px;
   font-family: inherit;
   color: white;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   box-sizing: border-box;
   border-radius: 16px;
   position: fixed;
@@ -19,6 +19,17 @@
   left: 0;
   right: 0;
   margin: auto;
+  display: none;
+}
+
+.form .cancel p{
+  cursor: pointer;
+  margin-left: auto;
+  border-radius: 100%;
+  color: white;
+  background-color: red;
+  padding: 0 5px;
+  width: fit-content;
 }
 
 .form-container button:active {
