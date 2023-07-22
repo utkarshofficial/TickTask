@@ -72,10 +72,26 @@ signupBtn.onclick = function () {
   }
 
   error.style.display = "none";
+  
+  // for capitalize fullname
+  let fullnameCapitalized = capitalize(fullname.value);
+  
+
   // if not found then add user
-  signup(fullname.value, username.value, email.value, password.value);
+  signup(fullnameCapitalized, username.value, email.value, password.value);
   signupSuccess();
 };
+
+// capitalize first letter capital
+function capitalize(fulltext){
+  let texts = fulltext.split(' ');
+  let fullname = "";
+  for(let i=0;i<texts.length;i++){
+    let text = texts[i];
+    fullname += text[0].toUpperCase() + text.slice(1) + ' ';
+  }
+  return fullname.trim();
+}
 
 // if already logged in -> redirect
 window.onload = ()=>{
