@@ -159,6 +159,9 @@ addTaskBtn.addEventListener("click", () => {
     img.style.width = "25px";
     img.src = "img/add.svg";
     addTaskForm.style.display = "none";
+    // empty the values of addtask form
+    addTitle.value = "";
+    addDescription.value = "";
   }
 });
 
