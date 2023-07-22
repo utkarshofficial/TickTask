@@ -18,6 +18,7 @@ class Task {
   // }
   // for taking direct task object
   constructor(task) {
+    this.id = task.id;
     this.title = task.title;
     this.description = task.description;
     this.isActive = task.isActive;
@@ -32,7 +33,7 @@ class Task {
               ${this.avatarLetter}
             </div>
             <div class="taskCardDone">
-              <button>
+              <button id="${this.id}" onclick="finishTask(this)">
                 <img class="tick" src="img/tick.svg" alt="" />
               </button>
             </div>
@@ -71,7 +72,6 @@ class Tasks {
   };
   addTask(task){
     this.taskList.unshift(task);
-    this.update();
   };
   saveTaskList(){
     user.taskList = this.taskList;
@@ -131,6 +131,15 @@ let tasks = new Tasks(user.taskList);
 // * Initial read data from user
 tasks.update();
 
+// * Generates Random id
+function generateTaskId(){
+  let range = 900000000;
+  let id="";
+  id+=Math.random() * range;
+  id+=Math.random() * range;
+  return id;
+}
+
 // when clicked on addTask toggle the btn
 addTaskBtn.addEventListener("click", () => {
   let img = addTaskBtn.children[0];
@@ -143,15 +152,19 @@ addTaskBtn.addEventListener("click", () => {
     
     if (addTaskBtn.children[0].src.lastIndexOf("tick.svg") != -1) {
       if(addTitle.value.length == 0 || addDescription.value.length ==0)
-        return;
-  
+      return;
+      
       // now add this task as new active task
-      const addTaskDetail = {
+      // * Manually generated
+      let taskId = generateTaskId();
+      let addTaskDetail = {
+        id: taskId,
         title: addTitle.value,
         description: addDescription.value,
         isActive: true
       }
-      tasks.addTask(new Task(addTaskDetail));
+      let newTask = new Task(addTaskDetail);
+      tasks.addTask(newTask);
       // update all data
       tasks.update();
     }
@@ -164,6 +177,23 @@ addTaskBtn.addEventListener("click", () => {
     addDescription.value = "";
   }
 });
+
+// * ------------------- Finish Task Btn ------------------------
+
+function finishTask(clickedTask){
+    let clickedTaskId = clickedTask.id;
+    // search this in all task
+    for(let i=0;i<tasks.taskList.length;i++){
+      if(tasks.taskList[i].id == clickedTaskId){
+        // finish the task
+        tasks.taskList[i].isActive = false;
+      }
+    }
+    // update the dom 
+    tasks.update();
+}
+
+// ! ------------------- Finish Task Btn End ------------------------
 
 // * Tabs active and done
 const tabClick = (activeClick) =>{
@@ -211,4 +241,3 @@ doneTabBtn.onclick = ()=>{
 window.onload = ()=>{
   tabClick(true);
 }
-
