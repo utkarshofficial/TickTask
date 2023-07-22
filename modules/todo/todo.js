@@ -259,9 +259,31 @@ function setDateDom(){
   date.innerHTML = dateToday.slice(3,dateToday.length);
 }
 
+// wishing in dom
+function wishDom(){
+  let time = new Date().getHours();
+  let wishText = ["Good"];
+  if(23 < time && time < 4){
+    wishText.push("Night 🌃");
+  }
+  else if(time < 11){
+    wishText.push("Morning 🌄");
+  }
+  else if(time < 4){
+    wishText.push("Afternoon 🌞");
+  }
+  else{
+    wishText.push("Evening 🌆");
+  }
+  wish.innerHTML = `<span>${wishText[0]}</span><span>${wishText[1]}</span>`;
+}
+
 window.onload = ()=>{
   // * setting current date
   setDateDom();
+
+  // wishing 
+  wishDom();
 
   // clicking activeTabBtn
   tabClick(true);
