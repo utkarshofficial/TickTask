@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="../navbar.css" />
+    <link rel="stylesheet" href="profile.css" />
+  </head>
+  <body>
+    <div class="navbarBootstrap">
+      <nav class="navbar bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img
+              src="../img/todo-logo-cutout.png"
+              alt="Logo"
+              width="30"
+              height="30"
+              class="d-inline-block align-text-top"
+            />
+            ToDo
+          </a>
+          <a href="">
+            <div class="profile-nav">
+              <p id="profileName" class="text-primary">Utkarsh</p>
+              <div class="profile-icon">
+                <p id="profileLetter" class="text-white">U</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div class="profileBox">
+      <div class="formContainer">
+        <div class="profTitle" >
+            <p id="profTitle">U</p>
+        </div>
+        <p class="title">Profile</p>
+        <form class="form" onsubmit="return false">
+          <div class="inputGroup">
+            <label for="fullname">Name</label>
+            <input type="text" name="fullname" id="fullname" placeholder="" />
+          </div>
+          <div class="inputGroup">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="" />
+          </div>
+          <div class="inputGroup">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="" />
+          </div>
+          <div class="inputGroup">
+            <label for="password">Password</label>
+            <input
+              type="text"
+              name="password"
+              id="password"
+              placeholder=""
+            />
+          </div>
+          <button class="sign" id="saveBtn">Save</button>
+          <div class="buttonGroup">
+              <button class="sign" id="logoutBtn">Delete Tasks</button>
+              <button class="sign" id="deleteTaskBtn">Log Out</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
