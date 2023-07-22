@@ -1,16 +1,24 @@
 
 let user = JSON.parse(localStorage.getItem("user"));
-let taskList = user.taskList;
+let users = JSON.parse(localStorage.getItem("users"));
 
 class Task {
-  constructor(title, description, isActive, date=null) {
-    this.title = title;
-    this.description = description;
-    this.isActive = isActive;
+  // constructor(title, description, isActive, date=null) {
+  //   this.title = title;
+  //   this.description = description;
+  //   this.isActive = isActive;
+  //   this.avatarLetter = user.fullname[0];
+  //   this.date = date;
+  // }
+  // for taking direct task object
+  constructor(task) {
+    this.title = task.title;
+    this.description = task.description;
+    this.isActive = task.isActive;
     this.avatarLetter = user.fullname[0];
-    this.date = date;
+    // this.date = date;
   }
-  toElement = () => {
+  toElement(){
     return `<li>
         <div class="taskCard">
           <div class="avatarOnCard">
@@ -39,42 +47,83 @@ class Task {
 }
 
 class Tasks {
-  constructor(taskList) {
+  constructor(taskList) { 
     this.taskList = taskList;
+    this.active = [];
+    this.done = [];
+    this.activeStr = "";
+    this.doneStr = "";
+    this.toTask();
     this.update();
   }
-  active = [];
-  done = [];
-  activeStr = "";
-  doneStr = "";
   fullname = user.fullname;
-  addTask = (task) => {
-    taskList.unshift(task);
+  // this function convert random object array to Task object
+  toTask(){
+    for(let i=0;i<this.taskList.length;i++){
+      this.taskList[i] = new Task(this.taskList[i]);
+    }
+  };
+  addTask(task){
+    this.taskList.unshift(task);
     this.update();
   };
-  saveTaskList=()=>{
+  saveTaskList(){
     user.taskList = this.taskList;
     localStorage.setItem("user",JSON.stringify(user));
   }
-  removeTask = () => {};
-  update = () => {
+  removeTask(){};
+  update(){
     this.active = [];
+    this.activeStr = "";
     this.done = [];
-    for (let i = 0; i < taskList.length; i++) {
-      if (taskList[i].isActive) {
-        this.active.unshift(taskList[i]);
+    this.doneStr = "";
+    for (let i = 0; i < this.taskList.length; i++) {
+      if (this.taskList[i].isActive) {
+        this.active.unshift(this.taskList[i]);
         // converting activelist to element
-        this.activeString += taskList[i].toElement();
+        this.activeStr += this.taskList[i].toElement();
       } else {
-        this.done.unshift(taskList[i]);
-        this.doneString += taskList[i].toElement();
+        this.done.unshift(this.taskList[i]);
+        this.doneStr += this.taskList[i].toElement();
       }
     }
     this.saveTaskList();
+    // * update the activeul and doneul
+    // activeUl.innerHTML = tasks.activeStr;
+    // doneUl.innerHTML = tasks.doneStr;
+    this.updateListDOM();
+
+    // * update task tab count in dom
+    this.updateTasksCount();
+
+    // ! Update DB
+    updateUserInUsersDB();
   };
+  updateListDOM(){
+    activeUl.innerHTML = this.activeStr;
+    doneUl.innerHTML = this.doneStr;
+  }
+  updateTasksCount(){
+    activeCount.innerHTML = this.active.length;
+    doneCount.innerHTML = this.done.length;
+  }
 }
 
-let tasks = new Tasks(taskList);
+// ! Update data in main users array
+function updateUserInUsersDB(){
+  for(let i=0;i<users.length;i++){
+    if(users[i].username == user.username){
+      users[i] = user;
+      // save it to loaclStorage means update Database
+      localStorage.setItem("users",JSON.stringify(users));
+    }
+  }
+  
+}
+
+let tasks = new Tasks(user.taskList);
+// * Initial read data from user
+tasks.update();
 
 // when clicked on addTask toggle the btn
 addTaskBtn.addEventListener("click", () => {
@@ -91,8 +140,12 @@ addTaskBtn.addEventListener("click", () => {
         return;
   
       // now add this task as new active task
-      tasks.addTask(new Task(addTitle.value,addDescription.value,true));
-      console.log("work");
+      const addTaskDetail = {
+        title: addTitle.value,
+        description: addDescription.value,
+        isActive: true
+      }
+      tasks.addTask(new Task(addTaskDetail));
       // update all data
       tasks.update();
     }
@@ -102,4 +155,51 @@ addTaskBtn.addEventListener("click", () => {
     addTaskForm.style.display = "none";
   }
 });
+
+// * Tabs active and done
+const tabClick = (activeClick) =>{
+  let color = "white";
+  let textColor = "black";
+  if(activeClick){
+    activeTabBtn.style.boxShadow = `0px 2px 0px ${color}`;
+    activeTabBtn.style.borderTopLeftRadius= "20px";
+    activeTabBtn.style.backgroundColor= color;
+    activeTabBtn.style.color = textColor;
+    doneTabBtn.style.color = color;
+    doneTabBtn.style.backgroundColor= "";
+    doneTabBtn.style.boxShadow = "none";
+    // hiding doneul showing activeul
+    activeUl.style.display = "block";
+    doneUl.style.display = "none";
+    
+    // * Add innerHTML for activeUl
+    
+  }else{
+    activeTabBtn.style.boxShadow = "none";
+    activeTabBtn.style.backgroundColor= "none";
+    activeTabBtn.style.backgroundColor= "";
+    activeTabBtn.style.color = color;
+    doneTabBtn.style.color = textColor;
+    doneTabBtn.style.borderTopRightRadius= "20px";
+    doneTabBtn.style.backgroundColor= color;
+    doneTabBtn.style.boxShadow = `0px 2px 0px ${color}`;
+    // hiding activeul showing doneul
+    doneUl.style.display = "block";
+    activeUl.style.display = "none";
+    
+    // * Add innerHTML for doneUl
+    //here
+  }
+}
+
+activeTabBtn.onclick = ()=>{
+  tabClick(true);
+}
+doneTabBtn.onclick = ()=>{
+  tabClick(false);
+}
+
+window.onload = ()=>{
+  tabClick(true);
+}
 

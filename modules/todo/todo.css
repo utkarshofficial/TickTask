@@ -100,21 +100,22 @@ p{
 }
 
 .tabBtn{
-    width: 49.49%;
+    padding: 5px;
+    width: 50%;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2em;
-}
-.tabBtn button{
+    font-size: 1.3em;
     border: none;
     font-family: calibri;
-    font-weight: 300;
+    font-weight: 800;
     color: white;
     background-color: transparent;
 }
 .tabBtn span{
+    margin-right: 5px;
+    font-size: 0.8em;
     font-weight: 700;
     text-align: center;
     background-color: #5e8bff;
@@ -163,7 +164,7 @@ p{
 .taskList > ul{
     margin: 0;
     margin-top: 5px;
-    height: calc(100vh - 170px);
+    height: calc(100vh - 180px);
     padding: 0; 
     overflow: auto;
 }
