@@ -1,5 +1,11 @@
 
 let user = JSON.parse(localStorage.getItem("user"));
+
+// ! user not logged in -> redirect to login
+if(user == null){
+  location.href = location.origin + "/modules/login/login.html";
+}
+
 let users = JSON.parse(localStorage.getItem("users"));
 
 class Task {
