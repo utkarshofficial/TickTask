@@ -263,7 +263,7 @@ function setDateDom(){
 function wishDom(){
   let time = new Date().getHours();
   let wishText = ["Good"];
-  if(23 < time && time < 4){
+  if(23 < time || time < 4){
     wishText.push("Night 🌃");
   }
   else if(time < 11){
