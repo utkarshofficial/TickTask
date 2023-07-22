@@ -5,19 +5,18 @@ body{
 
 .form-box {
     margin: auto;
+    margin-top: 20px;
     max-width: 450px;
-    background: #f1f7fe;
     overflow: hidden;
     border-radius: 16px;
-    color: #010101;
+    color: white;
 }
 
 .form {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 32px 24px 24px;
-    gap: 16px;
+    padding: 10px 20px;
     text-align: center;
 }
 
@@ -25,6 +24,7 @@ body{
 .title {
     font-weight: bold;
     font-size: 1.6rem;
+    margin-bottom: 20px;
 }
 
 .subtitle {
@@ -53,9 +53,10 @@ body{
 }
 
 .form-section {
-    padding: 16px;
+    padding: 10px;
     font-size: .85rem;
-    background-color: #e0ecfb;
+    /* background-color: #e0ecfb; */
+    text-align: center;
     box-shadow: rgb(0 0 0 / 8%) 0 -1px;
 }
 

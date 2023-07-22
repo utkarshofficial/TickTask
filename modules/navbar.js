@@ -1,8 +1,8 @@
 // adding user name to navbar
 function setUserDetailNav(){
     if(localStorage.getItem("user") == null){
-        profileName.innerHTML = "Log In";
-        profileLetter.innerHTML = 'L';
+        profileName.innerHTML = "Hello";
+        profileLetter.innerHTML = '👋';
         return;
     }
     let firstNameIdx = user.fullname.indexOf(' ');
@@ -10,7 +10,7 @@ function setUserDetailNav(){
     // adding firstName
     let firstName = user.fullname.slice(0,firstNameIdx);
     profileName.innerHTML = firstName;
-    profileLetter.innerHTML = firstName[0];
+    profileLetter.innerHTML = '👏';
 }
 
 setUserDetailNav();
