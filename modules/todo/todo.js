@@ -1,4 +1,4 @@
-
+let doneSound = new Audio("../../sound/done_sound.mp3");
 let user = JSON.parse(localStorage.getItem("user"));
 
 // ! user not logged in -> redirect to login
@@ -194,6 +194,9 @@ addTaskBtn.addEventListener("click", () => {
 // * ------------------- Finish Task Btn ------------------------
 
 function finishTask(clickedTask){
+    // play sound when clicked
+    doneSound.play();
+
     let clickedTaskId = clickedTask.id;
     // search this in all task
     for(let i=0;i<tasks.taskList.length;i++){
