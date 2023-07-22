@@ -78,6 +78,15 @@ class Tasks {
     localStorage.setItem("user",JSON.stringify(user));
   }
   removeTask(){};
+  // * Task Done ratio show
+  doneTaskRatio(){
+    // percentage calcluation
+    let totalTask = this.done.length + this.active.length;
+    let doneTask = this.done.length;
+    let ratio = totalTask == 0 ? 0 : (doneTask / totalTask) * 100;
+    
+    taskDoneRatio.innerHTML = parseInt(ratio);
+  }
   update(){
     this.active = [];
     this.activeStr = "";
@@ -94,7 +103,11 @@ class Tasks {
       }
     }
     this.saveTaskList();
-    // * update the activeul and doneul
+
+    // update task ratio
+    this.doneTaskRatio()
+
+    // * update the activeUl and doneUl
     // activeUl.innerHTML = tasks.activeStr;
     // doneUl.innerHTML = tasks.doneStr;
     this.updateListDOM();
