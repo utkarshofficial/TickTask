@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
+    <link rel="stylesheet" href="../loader.css">
     <link rel="stylesheet" href="../bootstrap/bootstrap.css" />
     <link rel="stylesheet" href="../navbar.css" />
     <link rel="stylesheet" href="profile.css" />
@@ -42,15 +43,15 @@
         <form class="form" onsubmit="return false">
           <div class="inputGroup">
             <label for="fullname">Name</label>
-            <input type="text" name="fullname" id="fullname" placeholder="" />
+            <input type="text" id="fullname" placeholder="" />
           </div>
           <div class="inputGroup">
             <label for="username">Username</label>
-            <input type="text" name="username" id="username" placeholder="" />
+            <input type="text" id="username" placeholder="" />
           </div>
           <div class="inputGroup">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="" />
+            <input type="email" id="email" placeholder="" />
           </div>
           <div class="inputGroup">
             <label for="password">Password</label>
@@ -61,13 +62,17 @@
               placeholder=""
             />
           </div>
+          <div class="loader" id="loader">
+            <div class="justify-content-center jimu-primary-loading"></div>
+          </div>
           <button class="sign" id="saveBtn">Save</button>
           <div class="buttonGroup">
-              <button class="sign" id="logoutBtn">Delete Tasks</button>
-              <button class="sign" id="deleteTaskBtn">Log Out</button>
+              <button class="sign" id="deleteTaskBtn">Delete Tasks</button>
+              <button class="sign" id="logoutBtn">Log Out</button>
           </div>
         </form>
       </div>
     </div>
+    <script src="profile.js"></script>
   </body>
 </html>
