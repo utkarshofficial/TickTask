@@ -251,6 +251,18 @@ doneTabBtn.onclick = ()=>{
   tabClick(false);
 }
 
+// For set today date and day 
+function setDateDom(){
+  let dateToday = new Date().toDateString();
+  let day = dateToday.slice(0,3);
+  dayName.innerHTML = day;
+  date.innerHTML = dateToday.slice(3,dateToday.length);
+}
+
 window.onload = ()=>{
+  // * setting current date
+  setDateDom();
+
+  // clicking activeTabBtn
   tabClick(true);
 }
