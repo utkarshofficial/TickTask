@@ -2,7 +2,7 @@ let user = JSON.parse(localStorage.getItem("user"));
 let users = JSON.parse(localStorage.getItem("users"));
 
 if(user == null){
-    location.href = location.origin + "/modules/login/login.html";
+    location.href = location.origin + "./modules/login/login.html";
 }
 
 // read all details and show in DOM
