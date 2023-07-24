@@ -25,9 +25,17 @@ class Task {
     this.avatarLetter = user.fullname[0];
     // this.date = date;
   }
+  taskCardColorGenerator(){
+    let color = '';
+    let hexColor = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
+    for(let i=0;i<6;i++){
+      color += hexColor[Math.floor(Math.random() * hexColor.length)];
+    }
+    return color;
+  }
   toElement(){
     return `<li>
-        <div class="taskCard">
+        <div class="taskCard" style="background-color: #${this.taskCardColorGenerator()};">
           <div class="avatarOnCard">
             <div class="avatar" >
               ${this.avatarLetter}
