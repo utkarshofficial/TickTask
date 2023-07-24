@@ -13,6 +13,11 @@
     border: 2px solid #111c2f;
     border-radius: 10px;
 }
+
+.navbar-brand{
+    font-weight: 600;
+}
+
 #profileName{
     font-size: 1.4em;
     margin: 0;
